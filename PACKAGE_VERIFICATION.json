@@ -1,15 +1,21 @@
 {
   "status": "PASS",
-  "unique_model_archive_members_byte_verified": 201,
+  "unique_model_archive_members_byte_verified": 2,
   "original_source_path_mappings_verified": 847,
   "figure_sha256": "972fe63e62491ac071a55f43a45b82ec1a1f23fd71a0dfd2ad5bb0fadf3966c8",
   "root_python_syntax": "PASS",
   "models_retrained": false,
   "archive_checks": "uncompressed original model members matched original size and SHA-256; original code members matched source index",
   "checks_do_not_establish": "scientific claim validity or runtime portability of every historical script",
-  "asset_count": 11,
+  "asset_count": 2,
   "browsable_original_files_byte_verified": 42,
   "restored_original_code_paths_byte_verified": 847,
   "windows_long_path_restore": "PASS",
-  "maintained_restore_utility_sha256": "2418d09796bb6eea7880ed195704212b9fc712b174e5f754602152a31f9f59de"
+  "maintained_restore_utility_sha256": "2418d09796bb6eea7880ed195704212b9fc712b174e5f754602152a31f9f59de",
+  "public_model_scope": "final Full ARGScope-AA and ARGScope-NT only",
+  "historical_models_published": false,
+  "published_checkpoint_hashes": {
+    "models/arg_fixed80/full/ARGScope-AA.pt": "a7ce4f09fbca42c67b11a7133a716814465d29176ae5dfb2fff987320785b8bc",
+    "models/arg_fixed80/full/ARGScope-NT.pt": "229bc847bc2438fa21a1bd3539f0d3318723b39853d36edeb9ba57aca468d222"
+  }
 }

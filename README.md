@@ -9,10 +9,10 @@ ARGScope combines paired protein and nucleotide representations during training,
 ## Download
 
 - **[Original code bundle](ARGScope-source.zip)** — structured training/evaluation workflows, fixed-split metadata, and a checksum-indexed archive of historical experimental and plotting sources.
-- **[Trained models and recorded results](https://github.com/JiePan-code/ARGScope/releases/tag/v0.1.0)** — original checkpoint bytes, organized by experiment rather than mixed into one model version.
-- **[Model index](MODEL_INDEX.csv)** and **[release asset checksums](RELEASE_ASSETS.csv)** — original relative paths, packaged locations, sizes and SHA-256 identifiers.
+- **[Current manuscript models](https://github.com/JiePan-code/ARGScope/releases/tag/v1.0.0)** — the final Full ARGScope-AA and ARGScope-NT checkpoints only.
+- **[Model index](MODEL_INDEX.csv)** and **[release asset checksums](RELEASE_ASSETS.csv)** — original relative paths, packaged locations, sizes and SHA-256 identifiers for the published files.
 
-The supplied Figure 1 is included without image modification. This release packages existing local artifacts. It does not replace them with newly trained models or reconstructed measurements.
+The supplied Figure 1 is included without image modification. The model download contains only the two final ARGScope checkpoints used for the manuscript's main full-length evaluation. Historical, smoke-test, search-candidate, ablation and alternative-task checkpoints are not included in the public model release. Existing checkpoint bytes and reported measurements have not been replaced by newly trained models or reconstructed values.
 
 ## Protein-only or nucleotide-only prediction
 
@@ -40,7 +40,7 @@ Extract `ARGScope-source.zip`. The canonical fixed80 workflow is in `training/ar
 python training/arg_fixed80/run_pipeline.py --data-root /path/to/data --output-root /path/to/new_results --variant full
 ```
 
-The original suite also exposes `wo_gate`, `wo_graph`, `wo_transfer`, and `all`. Its source files and original run receipts are retained. Training has **not** been repeated for this release. Historic Windows/HPC paths in original scripts need local configuration. The new prediction wrapper is not a general loader for every historical or VF/BGC checkpoint schema.
+The original suite also exposes `wo_gate`, `wo_graph`, `wo_transfer`, and `all`. Its source files and original run receipts are retained. Training has **not** been repeated for this release. Historic Windows/HPC paths in original scripts need local configuration. The new prediction wrapper supports the two published Full checkpoints, not every checkpoint schema represented in the source archive.
 
 The structured source bundle includes:
 
@@ -71,9 +71,9 @@ For release verification, both original Full checkpoints were run on their origi
 
 ## Versioning and scope
 
-The fixed80 split fingerprint is `6d2d3cf7ad252f255dedf4e4bbeae693f5ea0c5112f39daec331aaa975d93991`. Older subtype2, parameter-search, short-read, VF and BGC artifacts are separate experiment versions. In particular, original and standardized BGC labels/checkpoints are not interchangeable. No universal superiority, statistical significance or prospective deployment claim is added by this repository.
+The fixed80 split fingerprint is `6d2d3cf7ad252f255dedf4e4bbeae693f5ea0c5112f39daec331aaa975d93991`. The downloadable model version contains only the final ARGScope-AA and ARGScope-NT weights identified in `MODEL_INDEX.csv`. Other experiment sources are retained for traceability but do not imply that their model weights are distributed. No universal superiority, statistical significance or prospective deployment claim is added by this repository.
 
-Recorded result files are preserved as collected. Metric definitions and populations differ across historical exports. The code archive and model index identify their provenance; they should not be merged solely because filenames look similar.
+Original recorded results remain unchanged in the local research archive. The public `INFERENCE_REPLAY.json` records the two final checkpoint replay checks. The source archive contains multiple experiment versions, which should not be merged solely because filenames look similar.
 
 ## Dependencies, data and licensing
 

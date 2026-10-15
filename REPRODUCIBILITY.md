@@ -1,6 +1,6 @@
 # Reproducibility and release checks
 
-Release preparation date: 2026-10-15.
+Release preparation date: 2026-10-15. Public model scope: the final Full ARGScope-AA and ARGScope-NT checkpoints only.
 
 ## Checks actually performed
 
@@ -24,7 +24,7 @@ The successful new wrapper replay used Windows, CUDA and the installed PyTorch b
 
 ## Original records versus release metadata
 
-Original measurements and receipts were not rewritten. Newly created files are the release README/documentation, source/model indexes, archives, checksum lists, restore utility, prediction wrapper and release checks. Hashes computed now attest to these current bytes, not to an absent historical attestation. A saved result file or a successful syntax check is not represented as proof of a fresh full training run.
+Original measurements and receipts were not rewritten. Newly created files are the release README/documentation, source/model indexes, archives, checksum lists, restore utility, prediction wrapper and release checks. The public model index and asset checksum list describe only the two final checkpoints and their published downloads. Broader experimental checkpoint archives remain unpublished. Hashes computed now attest to these current bytes, not to an absent historical attestation. A saved result file or a successful syntax check is not represented as proof of a fresh full training run.
 
 Use the repository-root `restore_archive.py` for Windows long-path support.
 The source ZIP's `release_entrypoints/` directory retains the initial packaging
