@@ -1,4 +1,4 @@
-# ARGScope
+# ARGScope: Graph-guided multimodal distillation for fine-grained antibiotic resistance gene annotation
 
 Graph-guided multimodal fusion and distillation for hierarchical antibiotic resistance gene annotation.
 
