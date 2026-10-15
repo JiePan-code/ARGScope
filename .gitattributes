@@ -1,0 +1,2 @@
+# Preserve released file bytes across platforms; verify with SHA256SUMS.txt.
+* -text
