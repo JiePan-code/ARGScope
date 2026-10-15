@@ -1,0 +1,5 @@
+{
+  "source": "E:\\1. ARGmodel\\1. NonARG_training\\new model result8.24\\2.Protein_student_long_gridsearch\\best_parameters_and_test_results.csv",
+  "source_sha256": "9e63fdb0d8c0f8e77b15c068d1f3244ba2503cdf3a598d9cd88a4e98573bb692",
+  "notes": "Fixed historical scientific parameters only. No old weights, epochs selected on new test, or old metric values used. No parameter search is performed in this suite."
+}

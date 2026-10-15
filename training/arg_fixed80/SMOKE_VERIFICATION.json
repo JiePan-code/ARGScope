@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "split_fingerprint": "6d2d3cf7ad252f255dedf4e4bbeae693f5ea0c5112f39daec331aaa975d93991",
+  "completed_students": 8,
+  "N_test_each": 4574,
+  "same_test_IDs_and_ground_truth": true,
+  "actual_model_train_normalization_checked": true,
+  "raw_prototypes_recomputed": true,
+  "no_gate_weights_fixed_at_half": true,
+  "no_graph_uses_raw_prototypes": true,
+  "no_transfer_Teacher_epoch_zero_and_all_transfer_coefficients_zero": true,
+  "same_settings_within_modality_except_explicit_ablation": true,
+  "smoke_test_only": true
+}

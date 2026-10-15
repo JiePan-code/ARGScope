@@ -1,0 +1,11 @@
+{
+  "source_directory": "E:\\1. ARGmodel\\1. NonARG_training\\new model result8.24\\1.training dataset\\ARGScope_ablation_suite\\argscope_subtype2_newsplit",
+  "changes": "Five model implementations copied byte-for-byte; the shared split contract and launcher wiring are changed.",
+  "sha256": {
+    "01_gated_fusion.py": "01f0b03e0dce81c351e04ced7b2635ae54e630d5e243dd28740f2c54efd9ad33",
+    "02_raw_prototypes.py": "60267a4957e6efe26adbe482ef6bb06beebd9407b0a18667641bbcf151d13801",
+    "03_refine_gat.py": "8aca35479cfae87d07d35675974e42d7eca56ff4e78cbe666c8e460619c70754",
+    "04_protein_student.py": "2097ec16cd638ffd309c10e93b031347a764f344aec27610829243718b6628a5",
+    "05_dna_student.py": "94b502375c19b28ad6ebb9c90f24647417feb64b6c91dfa9b772eae2c75d6b21"
+  }
+}
