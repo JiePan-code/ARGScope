@@ -7,5 +7,9 @@
   "models_retrained": false,
   "archive_checks": "uncompressed original model members matched original size and SHA-256; original code members matched source index",
   "checks_do_not_establish": "scientific claim validity or runtime portability of every historical script",
-  "asset_count": 11
+  "asset_count": 11,
+  "browsable_original_files_byte_verified": 42,
+  "restored_original_code_paths_byte_verified": 847,
+  "windows_long_path_restore": "PASS",
+  "maintained_restore_utility_sha256": "2418d09796bb6eea7880ed195704212b9fc712b174e5f754602152a31f9f59de"
 }

@@ -5,8 +5,15 @@ New release utility; no experimental code is executed.
 import argparse
 import csv
 import hashlib
+import os
 import shutil
 from pathlib import Path
+
+
+def native_path(path):
+    """Support archived Windows paths beyond the legacy MAX_PATH limit."""
+    value = os.path.abspath(path)
+    return "\\\\?\\" + value if os.name == "nt" else value
 
 
 def main():
@@ -27,8 +34,8 @@ def main():
             raise ValueError("Unsafe path in archive index")
         if hashlib.sha256(src.read_bytes()).hexdigest() != row["sha256"]:
             raise ValueError("Archived source checksum mismatch")
-        dst.parent.mkdir(parents=True, exist_ok=True)
-        shutil.copyfile(src, dst)
+        os.makedirs(native_path(dst.parent), exist_ok=True)
+        shutil.copyfile(native_path(src), native_path(dst))
     print(f"Restored {len(rows)} original source paths under {out}")
 
 

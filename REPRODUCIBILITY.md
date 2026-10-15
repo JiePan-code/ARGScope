@@ -25,3 +25,7 @@ The successful new wrapper replay used Windows, CUDA and the installed PyTorch b
 ## Original records versus release metadata
 
 Original measurements and receipts were not rewritten. Newly created files are the release README/documentation, source/model indexes, archives, checksum lists, restore utility, prediction wrapper and release checks. Hashes computed now attest to these current bytes, not to an absent historical attestation. A saved result file or a successful syntax check is not represented as proof of a fresh full training run.
+
+Use the repository-root `restore_archive.py` for Windows long-path support.
+The source ZIP's `release_entrypoints/` directory retains the initial packaging
+snapshot; the repository-root utilities are the maintained release entrypoints.
