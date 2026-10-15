@@ -17,5 +17,7 @@
   "published_checkpoint_hashes": {
     "models/arg_fixed80/full/ARGScope-AA.pt": "a7ce4f09fbca42c67b11a7133a716814465d29176ae5dfb2fff987320785b8bc",
     "models/arg_fixed80/full/ARGScope-NT.pt": "229bc847bc2438fa21a1bd3539f0d3318723b39853d36edeb9ba57aca468d222"
-  }
+  },
+  "maintained_restore_utility_path": "archive/restore_archive.py",
+  "repository_layout": "organized by function; released checkpoint bytes unchanged"
 }

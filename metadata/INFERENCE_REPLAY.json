@@ -2,7 +2,7 @@
   "check": "forward-inference replay only; no retraining or model selection",
   "torch": "2.12.0.dev20260408+cu128",
   "gpu": "NVIDIA GeForce RTX 5060",
-  "new_wrapper": "predict.py",
+  "new_wrapper": "inference/predict.py",
   "wrapper_sha256": "79ab630e3b736218be61ba880e92be5648d286c06f82dc43d8c7a38d5d10cfef",
   "student_models_sha256": "fee94b2504e5260670b80736c6f43aa35b32254935db487b92d16578fa0f9ac0",
   "results": [
@@ -24,5 +24,6 @@
       "reference_csv_sha256": "d1da345fe044ed0523385cd7a454e06ed6fca32792d491c589ca413196e5845f",
       "status": "PASS"
     }
-  ]
+  ],
+  "student_models_path": "inference/student_models.py"
 }
