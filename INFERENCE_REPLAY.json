@@ -1,0 +1,28 @@
+{
+  "check": "forward-inference replay only; no retraining or model selection",
+  "torch": "2.12.0.dev20260408+cu128",
+  "gpu": "NVIDIA GeForce RTX 5060",
+  "new_wrapper": "predict.py",
+  "wrapper_sha256": "79ab630e3b736218be61ba880e92be5648d286c06f82dc43d8c7a38d5d10cfef",
+  "student_models_sha256": "fee94b2504e5260670b80736c6f43aa35b32254935db487b92d16578fa0f9ac0",
+  "results": [
+    {
+      "modality": "protein",
+      "n_test": 4574,
+      "label_mismatches": 0,
+      "maximum_absolute_probability_error": 0.0,
+      "checkpoint_sha256": "a7ce4f09fbca42c67b11a7133a716814465d29176ae5dfb2fff987320785b8bc",
+      "reference_csv_sha256": "3b23a2bd3bc189748de81dfe9b9677b6c576222e3f1bc87022410f043f0f8c12",
+      "status": "PASS"
+    },
+    {
+      "modality": "dna",
+      "n_test": 4574,
+      "label_mismatches": 0,
+      "maximum_absolute_probability_error": 0.0,
+      "checkpoint_sha256": "229bc847bc2438fa21a1bd3539f0d3318723b39853d36edeb9ba57aca468d222",
+      "reference_csv_sha256": "d1da345fe044ed0523385cd7a454e06ed6fca32792d491c589ca413196e5845f",
+      "status": "PASS"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "unique_model_archive_members_byte_verified": 201,
+  "original_source_path_mappings_verified": 847,
+  "figure_sha256": "972fe63e62491ac071a55f43a45b82ec1a1f23fd71a0dfd2ad5bb0fadf3966c8",
+  "root_python_syntax": "PASS",
+  "models_retrained": false,
+  "archive_checks": "uncompressed original model members matched original size and SHA-256; original code members matched source index",
+  "checks_do_not_establish": "scientific claim validity or runtime portability of every historical script",
+  "asset_count": 11
+}

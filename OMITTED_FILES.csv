@@ -1,0 +1,76 @@
+root,relative_path,reason
+workspace,export_docx_for_qa.ps1,"document-editing or temporary review utility, not experimental source"
+workspace,inspect_argscope_manuscript_923.py,"document-editing or temporary review utility, not experimental source"
+workspace,inspect_if_layouts_and_manuscript.py,"document-editing or temporary review utility, not experimental source"
+workspace,review_information_fusion_sources.py,"document-editing or temporary review utility, not experimental source"
+workspace,update_supplement_including_nonarg.py,"document-editing or temporary review utility, not experimental source"
+workspace,update_supplement_subtype_argonly.py,"document-editing or temporary review utility, not experimental source"
+workspace,outputs/argscope_supplementary_methods_20260923/build_methods.py,"document-editing or temporary review utility, not experimental source"
+workspace,outputs/argscope_supplementary_methods_20260923/finalize_mathtype.py,"document-editing or temporary review utility, not experimental source"
+workspace,outputs/argscope_supplementary_methods_20260923/prepare_mathtype.py,"document-editing or temporary review utility, not experimental source"
+workspace,tmp/bold_heatmap_metric_headers_20260929.py,"document-editing or temporary review utility, not experimental source"
+workspace,tmp/build_vf_bgc_four_rows_20260929.py,"document-editing or temporary review utility, not experimental source"
+workspace,tmp/build_vf_bgc_uniform_spaced_20260929.py,"document-editing or temporary review utility, not experimental source"
+workspace,tmp/compose_vf_bgc_type_large_20260929.py,"document-editing or temporary review utility, not experimental source"
+workspace,tmp/extract_matching_panels_20260929.py,"document-editing or temporary review utility, not experimental source"
+workspace,tmp/extract_vf_bgc_unchanged_panels_20260929.py,"document-editing or temporary review utility, not experimental source"
+workspace,tmp/finalize_vf_bgc_four_rows_20260929.py,"document-editing or temporary review utility, not experimental source"
+workspace,tmp/heatmaps_arial_12pt_20260929.py,"document-editing or temporary review utility, not experimental source"
+workspace,tmp/package_vf_bgc_unchanged_panels_20260929.py,"document-editing or temporary review utility, not experimental source"
+workspace,tmp/package_vf_bgc_uniform_spaced_20260929.py,"document-editing or temporary review utility, not experimental source"
+workspace,tmp/package_vf_bgc_vertical_20260929.py,"document-editing or temporary review utility, not experimental source"
+workspace,tmp/redesign_vf_bgc_vertical_20260929.py,"document-editing or temporary review utility, not experimental source"
+workspace,tmp/redraw_type_heatmaps_spaced_20260929.py,"document-editing or temporary review utility, not experimental source"
+workspace,tmp/redraw_vf_bgc_type_arial12_20260929.py,"document-editing or temporary review utility, not experimental source"
+workspace,tmp/render_heatmaps_arial_12pt_20260929.cjs,"document-editing or temporary review utility, not experimental source"
+workspace,tmp/render_heatmaps_blue_orange_bold_20260929.cjs,"document-editing or temporary review utility, not experimental source"
+workspace,tmp/render_matching_panels_20260929.cjs,"document-editing or temporary review utility, not experimental source"
+workspace,tmp/render_vf_bgc_four_rows_20260929.cjs,"document-editing or temporary review utility, not experimental source"
+workspace,tmp/render_vf_bgc_type_arial12_20260929.cjs,"document-editing or temporary review utility, not experimental source"
+workspace,tmp/render_vf_bgc_type_composite_20260929.cjs,"document-editing or temporary review utility, not experimental source"
+workspace,tmp/render_vf_bgc_unchanged_panels_20260929.cjs,"document-editing or temporary review utility, not experimental source"
+workspace,tmp/render_vf_bgc_uniform_spaced_20260929.cjs,"document-editing or temporary review utility, not experimental source"
+workspace,tmp/render_vf_bgc_vertical_20260929.cjs,"document-editing or temporary review utility, not experimental source"
+workspace,tmp/restyle_heatmaps_average_bold_20260929.py,"document-editing or temporary review utility, not experimental source"
+workspace,tmp/review_results_20260929.py,"document-editing or temporary review utility, not experimental source"
+workspace,tmp/verify_vf_bgc_cropped_svgs_20260929.cjs,"document-editing or temporary review utility, not experimental source"
+workspace,tmp/discussion_conclusion_20260929/build_document.py,"document-editing or temporary review utility, not experimental source"
+workspace,tmp/discussion_conclusion_20260929/finalize_qa.py,"document-editing or temporary review utility, not experimental source"
+workspace,tmp/figure_text_revision_20260929/build_replacement_packet.py,"document-editing or temporary review utility, not experimental source"
+workspace,tmp/figure_text_revision_20260929/render_pages.py,"document-editing or temporary review utility, not experimental source"
+workspace,tmp/figure_text_revision_20260929/revise_manuscript.py,"document-editing or temporary review utility, not experimental source"
+workspace,tmp/information_fusion_review_20260928/build_methods_package.py,"document-editing or temporary review utility, not experimental source"
+workspace,tmp/information_fusion_review_20260928/inspect_embedded_equations.py,"document-editing or temporary review utility, not experimental source"
+workspace,tmp/pdfs/style_reference_review/extract_references.py,"document-editing or temporary review utility, not experimental source"
+workspace,tmp/results_revision_20260929/build_results_word.py,"document-editing or temporary review utility, not experimental source"
+workspace,tmp/results_revision_20260929/finalize_qa.py,"document-editing or temporary review utility, not experimental source"
+workspace,tmp/v4_review_20260929/render_review.py,"document-editing or temporary review utility, not experimental source"
+workspace,tmp/v6_language_edit_20261013/apply_language_edits.py,"document-editing or temporary review utility, not experimental source"
+workspace,tmp/v6_language_edit_20261013/extract_documents.py,"document-editing or temporary review utility, not experimental source"
+workspace,tmp/v6_language_edit_20261013/library_file_transfer.py,"document-editing or temporary review utility, not experimental source"
+workspace,tmp/v6_language_edit_20261013/merge_for_review.py,"document-editing or temporary review utility, not experimental source"
+workspace,tmp/v6_language_edit_20261013/root_edits_builder.py,"document-editing or temporary review utility, not experimental source"
+workspace,tmp/v6_language_edit_20261013/tokenize_for_edit.py,"document-editing or temporary review utility, not experimental source"
+workspace,tmp/v6_language_edit_20261013/library_save_helpers/library_file_transfer.py,"document-editing or temporary review utility, not experimental source"
+workspace,tmp/v6_language_edit_20261013/library_save_helpers/library_hosted_apps.py,"document-editing or temporary review utility, not experimental source"
+workspace,tmp/v6_language_edit_20261013/library_save_helpers/library_upload.py,"document-editing or temporary review utility, not experimental source"
+workspace,work_manuscript_completion_20260921/complete_manuscript.py,"document-editing or temporary review utility, not experimental source"
+workspace,work_manuscript_completion_20260921/inspect_materials.py,"document-editing or temporary review utility, not experimental source"
+workspace,work_manuscript_completion_20260921/render_with_word.ps1,"document-editing or temporary review utility, not experimental source"
+workspace,work_manuscript_completion_20260921/revise_abstract.py,"document-editing or temporary review utility, not experimental source"
+workspace,work_results_first_two/inspect_sources.py,"document-editing or temporary review utility, not experimental source"
+training_experiments,1. Dataset/最后的数据集/check_protein_backtranslated_dna.py,sequence-generation utility; not part of the annotation-code release
+training_experiments,1. Dataset/最后的数据集/3.SARG_full_DNA_completion/02_download_only_truly_missing_full_SARG_DNA_from_NCBI_RIGHTCLICK.py,potential embedded secret; quarantined from public package pending manual review
+training_experiments,1. Dataset/最后的数据集/3.SARG_full_DNA_completion/03_backtranslate_remaining_SARG_proteins_empirical_codon_usage.py,sequence-generation utility; not part of the annotation-code release
+training_experiments,1. Dataset/最后的数据集/SARG_subtype_ge3_with_DNA/retrieve_missing_sarg_natural_dna_ncbi.py,potential embedded secret; quarantined from public package pending manual review
+training_experiments,1. Dataset/最后的数据集/SARG_subtype_ge3_with_DNA/SARG_missing_DNA_NCBI_retrieval/retrieve_missing_sarg_natural_dna_ncbi.py,potential embedded secret; quarantined from public package pending manual review
+arg_reference_processing,DNABERT_2-main/.github/workflows/check_build.yml,vendored DNABERT-2 implementation; obtain upstream separately
+arg_reference_processing,DNABERT_2-main/.github/workflows/example_huggingface_newer_than_v4_28.py,vendored DNABERT-2 implementation; obtain upstream separately
+arg_reference_processing,DNABERT_2-main/.github/workflows/example_huggingface_v4_28.py,vendored DNABERT-2 implementation; obtain upstream separately
+arg_reference_processing,DNABERT_2-main/finetune/train.py,vendored DNABERT-2 implementation; obtain upstream separately
+arg_reference_processing,DNABERT_2-main/finetune/scripts/run_dnabert1.sh,vendored DNABERT-2 implementation; obtain upstream separately
+arg_reference_processing,DNABERT_2-main/finetune/scripts/run_dnabert2.sh,vendored DNABERT-2 implementation; obtain upstream separately
+arg_reference_processing,DNABERT_2-main/finetune/scripts/run_nt.sh,vendored DNABERT-2 implementation; obtain upstream separately
+desktop_results,.build_argscope_ppt_20261013/content_extract.py,unrelated project or presentation build cache
+desktop_results,.build_argscope_ppt_20261013/extract_sources.py,unrelated project or presentation build cache
+desktop_results,.phage_translation_20261013/build_translation.py,unrelated project or presentation build cache

@@ -1,0 +1,6 @@
+# Broad minimum dependencies; not an original training lockfile.
+# Replay-observed PyTorch: 2.12.0.dev20260408+cu128 (see REPRODUCIBILITY.md).
+torch>=2.6
+numpy>=1.26
+pandas>=2.0
+scikit-learn>=1.3
