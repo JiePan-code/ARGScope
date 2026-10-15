@@ -7,7 +7,7 @@ Release preparation date: 2026-10-15. Public model scope: the final Full ARGScop
 - Original source, checkpoint and Figure 1 copies are identified with SHA-256 hashes. Exact-copy comparisons and archive CRC checks were performed during packaging.
 - The canonical Full/ablation receipts, saved split identities and recorded final student outputs were inspected. Saved prediction labels and independently recalculated metrics were compared by a separate read-only review.
 - All included Python source files were parsed for syntax during packaging; this does not execute them or establish that their historical dependencies are still available.
-- The root `predict.py` wrapper was tested using both original Full checkpoints and their original 4,574-row test embeddings. Binary, type and subtype predictions and both reported probability columns matched exactly. The detailed, machine-readable check is `INFERENCE_REPLAY.json`.
+- The `inference/predict.py` wrapper was tested using both original Full checkpoints and their original 4,574-row test embeddings. Binary, type and subtype predictions and both reported probability columns matched exactly. The detailed, machine-readable check is `metadata/INFERENCE_REPLAY.json`.
 - Text files selected for redistribution were screened for common credential patterns. Potential matches were quarantined instead of printed or uploaded. This is a bounded automated screen, not a security guarantee.
 
 ## Checks not performed
@@ -26,6 +26,6 @@ The successful new wrapper replay used Windows, CUDA and the installed PyTorch b
 
 Original measurements and receipts were not rewritten. Newly created files are the release README/documentation, source/model indexes, archives, checksum lists, restore utility, prediction wrapper and release checks. The public model index and asset checksum list describe only the two final checkpoints and their published downloads. Broader experimental checkpoint archives remain unpublished. Hashes computed now attest to these current bytes, not to an absent historical attestation. A saved result file or a successful syntax check is not represented as proof of a fresh full training run.
 
-Use the repository-root `restore_archive.py` for Windows long-path support.
+Use the maintained `archive/restore_archive.py` for Windows long-path support.
 The source ZIP's `release_entrypoints/` directory retains the initial packaging
-snapshot; the repository-root utilities are the maintained release entrypoints.
+snapshot; the utilities under `inference/` and `archive/` are the maintained release entrypoints.

@@ -24,7 +24,7 @@ The fixed population contains 22,870 sequences: 14,636 model-training, 3,660 val
 
 ## Prediction input
 
-`predict.py` expects a trusted `.pt` dictionary:
+`inference/predict.py` expects a trusted `.pt` dictionary:
 
 ```python
 {"ids": ["sequence_1", "sequence_2"], "embeddings": tensor_of_shape_N_by_D}
@@ -36,4 +36,4 @@ D is 1,280 for the protein branch or 768 for the nucleotide branch. Preserve ori
 
 VF data derive from VFDB and BGC-associated data from MIBiG, with non-target candidates from the corresponding project preparation. Source annotations are reference labels, not experimental confirmation of each predicted sequence function. BGC annotation is sequence-level assignment, not complete-cluster boundary detection. Original and standardized BGC releases have separate label handling and model schemas.
 
-No completeness claim is made for redistribution of every intermediate input or external database. `MODEL_INDEX.csv` and the source index record the actual supplied artifacts.
+No completeness claim is made for redistribution of every intermediate input or external database. `metadata/MODEL_INDEX.csv` and `metadata/SOURCE_INDEX.csv` record the actual supplied artifacts.
