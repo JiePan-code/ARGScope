@@ -25,7 +25,7 @@ Run the commands below from the repository root. The published v1.0.0 model down
 ## Download
 
 - **[Original code bundle](archive/ARGScope-source.zip)** — structured training/evaluation workflows, fixed-split metadata, and a checksum-indexed archive of historical experimental and plotting sources.
-- **[Current manuscript models](https://github.com/JiePan-code/ARGScope/releases/tag/v1.0.0)** — the final Full ARGScope-AA and ARGScope-NT checkpoints only.
+- **[models](https://github.com/JiePan-code/ARGScope/releases/tag/v1.0.0)** — the final Full ARGScope-AA and ARGScope-NT checkpoints only.
 - **[Model index](metadata/MODEL_INDEX.csv)** and **[release asset checksums](metadata/RELEASE_ASSETS.csv)** — original relative paths, packaged locations, sizes and SHA-256 identifiers for the published files.
 
 The supplied Figure 1 is included without image modification. The model download contains only the two final ARGScope checkpoints used for the manuscript's main full-length evaluation. Historical, smoke-test, search-candidate, ablation and alternative-task checkpoints are not included in the public model release. Existing checkpoint bytes and reported measurements have not been replaced by newly trained models or reconstructed values.
