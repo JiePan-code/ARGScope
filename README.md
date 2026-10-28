@@ -1,98 +1,156 @@
-# ARGScope: Graph-guided multimodal distillation for fine-grained antibiotic resistance gene annotation
+# ARGScope
 
-Graph-guided multimodal fusion and distillation for hierarchical antibiotic resistance gene annotation.
+ARGScope annotates antibiotic resistance genes (ARGs) from protein or nucleotide representations. It provides two independently usable models, **ARGScope-AA** for protein inputs and **ARGScope-NT** for nucleotide inputs. Each model predicts ARG/non-ARG status and an ARG subtype. Resistance types are obtained from the predicted subtypes using the saved label mapping.
 
-ARGScope combines paired protein and nucleotide representations during training, refines subtype prototypes using a mutual nearest-neighbor graph, and transfers supervision to independently deployable protein and nucleotide students. Binary and subtype heads run in parallel. The binary decision determines whether a subtype annotation is retained, and a predefined mapping supplies the resistance type.
+This page is the **usage manual**. For the learning framework, training data layout and training commands, see **[ARGScope model construction](docs/DEVELOPMENT.md)**.
 
-![ARGScope framework](assets/Figure1.png)
+## Contents
 
-## Repository layout
+- [Installation](#installation)
+- [Download pretrained models](#download-pretrained-models)
+- [Prepare input](#prepare-input)
+- [Example](#example)
+- [Output](#output)
+- [Model construction](#model-construction)
+- [Notes](#notes)
+- [Contact](#contact)
+
+## Installation
+
+Clone this repository:
+
+```bash
+git clone https://github.com/JiePan-code/ARGScope.git
+cd ARGScope
+```
+
+We suggest creating a separate Conda environment:
+
+```bash
+conda create -n argscope python=3.11 -y
+conda activate argscope
+python -m pip install -r requirements.txt
+```
+
+For GPU prediction, install a CUDA-enabled PyTorch build appropriate for your system. The dependencies in `requirements.txt` are minimum requirements. The environment used for the checkpoint replay is recorded in [REPRODUCIBILITY.md](docs/REPRODUCIBILITY.md).
+
+Check the available prediction options:
+
+```bash
+python inference/predict.py --help
+```
+
+Run all commands below from the repository root.
+
+## Download pretrained models
+
+Download **[ARGScope-pretrained-full.zip](https://github.com/JiePan-code/ARGScope/releases/download/v1.0.0/ARGScope-pretrained-full.zip)** from the [v1.0.0 release](https://github.com/JiePan-code/ARGScope/releases/tag/v1.0.0), save it in the repository root, and extract it:
+
+```bash
+python -m zipfile -e ARGScope-pretrained-full.zip .
+```
+
+The two checkpoints will be located at:
 
 ```text
-ARGScope/
-  inference/   # prediction entry point and original student architectures
-  training/    # original training workflows
-  assets/      # manuscript Figure 1
-  docs/        # data, reproducibility and licensing notes
-  metadata/    # source/model indexes and verification records
-  archive/     # original code bundle and source-restoration utility
-  README.md
-  requirements.txt
+models/arg_fixed80/full/
+    ARGScope-AA.pt
+    ARGScope-NT.pt
 ```
 
-Run the commands below from the repository root. The published v1.0.0 model downloads are unchanged by this directory-only reorganization.
+These are the final Full models used for the manuscript's main full-length evaluation. They contain the student weights, training normalization statistics, subtype labels and subtype-to-type mapping. Model file checksums are listed in [MODEL_INDEX.csv](metadata/MODEL_INDEX.csv).
 
-## Download
+## Prepare input
 
-- **[Original code bundle](archive/ARGScope-source.zip)** — structured training/evaluation workflows, fixed-split metadata, and a checksum-indexed archive of historical experimental and plotting sources.
-- **[models](https://github.com/JiePan-code/ARGScope/releases/tag/v1.0.0)** — the final Full ARGScope-AA and ARGScope-NT checkpoints only.
-- **[Model index](metadata/MODEL_INDEX.csv)** and **[release asset checksums](metadata/RELEASE_ASSETS.csv)** — original relative paths, packaged locations, sizes and SHA-256 identifiers for the published files.
+**The current prediction script accepts precomputed embeddings, not raw FASTA or FASTQ files.** Prepare embeddings with the corresponding pretrained language model:
 
-The supplied Figure 1 is included without image modification. The model download contains only the two final ARGScope checkpoints used for the manuscript's main full-length evaluation. Historical, smoke-test, search-candidate, ablation and alternative-task checkpoints are not included in the public model release. Existing checkpoint bytes and reported measurements have not been replaced by newly trained models or reconstructed values.
+| Model | Input representation | Dimensions |
+|---|---|---:|
+| ARGScope-AA | ESM-2 `esm2_t33_650M_UR50D` protein embeddings | 1,280 |
+| ARGScope-NT | DNABERT-2 nucleotide embeddings | 768 |
 
-## Protein-only or nucleotide-only prediction
+Save each input as a PyTorch `.pt` dictionary with these two entries:
 
-The `inference/predict.py` entry point accepts **precomputed embeddings**, not raw FASTA. It is a release wrapper added on 2026-10-15. `inference/student_models.py` is an exact copy of the existing saved-model inference definitions. It uses saved normalization statistics, subtype labels, classifier weights and the binary probability threshold of 0.80. Inputs must not be standardized a second time.
-
-1. Download and extract `ARGScope-pretrained-full.zip` from the release.
-2. Prepare a trusted PyTorch dictionary containing `ids` (unique strings) and `embeddings` (an N-by-D tensor).
-3. Run one branch:
-
-```bash
-python inference/predict.py --modality protein --checkpoint models/arg_fixed80/full/ARGScope-AA.pt --embeddings protein_embeddings.pt --output predictions_AA.csv
-
-python inference/predict.py --modality dna --checkpoint models/arg_fixed80/full/ARGScope-NT.pt --embeddings nucleotide_embeddings.pt --output predictions_NT.csv
-```
-
-Protein inputs are 1,280-dimensional ESM-2 `esm2_t33_650M_UR50D` representations. Nucleotide inputs are 768-dimensional DNABERT-2 representations. Extraction, pooling and sequence handling must match the original workflow. The checkpoint describes protein pooling as the mean of real-residue layer-33 representations, excluding BOS/EOS and retaining the first 1,022 residues. Original extraction and preprocessing scripts are retained in the source archive; older CLS-based and mean-pooled pipelines must not be interchanged.
-
-CUDA is the replay-verified path. `--device cpu` is implemented but its numerical agreement with the original reported GPU results has not been validated. Loading uses `weights_only=True`; load only trusted model and embedding files.
-
-## Training and reproduction
-
-Extract `ARGScope-source.zip`. The canonical fixed80 workflow is in `training/arg_fixed80/`. Provide the original data layout described in [DATA.md](docs/DATA.md), then run:
-
-```bash
-python training/arg_fixed80/run_pipeline.py --data-root /path/to/data --output-root /path/to/new_results --variant full
-```
-
-The original suite also exposes `wo_gate`, `wo_graph`, `wo_transfer`, and `all`. Its source files and original run receipts are retained. Training has **not** been repeated for this release. Historic Windows/HPC paths in original scripts need local configuration. The new prediction wrapper supports the two published Full checkpoints, not every checkpoint schema represented in the source archive.
-
-The structured source bundle includes:
-
-| Directory | Contents |
+| Entry | Required content |
 |---|---|
-| `training/arg_fixed80/` | Frozen canonical fusion, prototype, graph, teacher/student and ablation scripts |
-| `evaluation/arg_saved_models/` | Original saved-model and fragment application/evaluation scripts |
-| `data/` | Existing fixed-split IDs, label metadata and split contracts; no sequence FASTA |
-| `training/vf_original/` | Original VF workflow |
-| `training/bgc_original/` | Original BGC workflow |
-| `training/bgc_standardized/` | Separate standardized BGC workflow |
-| `historical/novel_gene/` | Original historical experiment scripts |
-| `embeddings/` | Identified embedding-extraction sources |
-| `archive/` | Other original sources, deduplicated by bytes and mapped by `CODE_INDEX.csv` |
+| `ids` | A list of unique, nonempty sequence ID strings |
+| `embeddings` | A finite tensor of shape `N x 1280` for AA or `N x 768` for NT, in the same order as `ids` |
 
-Use `archive/restore_archive.py` to restore archived sources under their original relative names. Archived scripts are not represented as uniformly portable or independently replay-tested.
+If your extraction workflow already provides `sequence_ids` and `embeddings`, package them as follows:
 
-## Verified Full-model results
+```python
+import torch
 
-The saved full-length test population contains 4,574 records, including ARG and non-ARG sequences. Values below are rounded from the original saved predictions, not read back from figure labels.
+torch.save(
+    {"ids": sequence_ids, "embeddings": embeddings.cpu().float()},
+    "protein_embeddings.pt",
+)
+```
 
-| Model | Binary ACC | Subtype ACC | Subtype weighted F1 |
-|---|---:|---:|---:|
-| ARGScope-AA | 0.9976 | 0.9434 | 0.9313 |
-| ARGScope-NT | 0.9746 | 0.9257 | 0.9092 |
+Use `nucleotide_embeddings.pt` as the output name for the NT input. The example above packages existing embeddings; it does not extract them from sequences. Preserve the original extraction, pooling and sequence-handling settings. For AA, use mean layer-33 representations of real residues, excluding BOS/EOS and retaining at most the first 1,022 residues. Do not standardize the embeddings before prediction, because the saved model applies its training normalization internally. See [DATA.md](docs/DATA.md) for input details.
 
-For release verification, both original Full checkpoints were run on their original 4,574 test embeddings. All binary, type and subtype predictions matched the saved tables, with maximum absolute probability difference **0.0**. See [INFERENCE_REPLAY.json](metadata/INFERENCE_REPLAY.json). This is forward-inference replay, not an independent validation dataset or a fresh training run.
+## Example
 
-## Versioning and scope
+### Protein annotation
 
-The fixed80 split fingerprint is `6d2d3cf7ad252f255dedf4e4bbeae693f5ea0c5112f39daec331aaa975d93991`. The downloadable model version contains only the final ARGScope-AA and ARGScope-NT weights identified in `metadata/MODEL_INDEX.csv`. Other experiment sources are retained for traceability but do not imply that their model weights are distributed. No universal superiority, statistical significance or prospective deployment claim is added by this repository.
+With the AA checkpoint and `protein_embeddings.pt` prepared:
 
-Original recorded results remain unchanged in the local research archive. The public `metadata/INFERENCE_REPLAY.json` records the two final checkpoint replay checks. The source archive contains multiple experiment versions, which should not be merged solely because filenames look similar.
+```bash
+python inference/predict.py --modality protein --checkpoint models/arg_fixed80/full/ARGScope-AA.pt --embeddings protein_embeddings.pt --output results/predictions_AA.csv
+```
 
-## Dependencies, data and licensing
+### Nucleotide annotation
 
-See [REPRODUCIBILITY.md](docs/REPRODUCIBILITY.md) for observed runtime and verification scope, [DATA.md](docs/DATA.md) for data expectations, and [LICENSE_STATUS.md](docs/LICENSE_STATUS.md) for licensing status. Upstream language-model weights, full sequence databases, bulk precomputed embeddings, temporary document-editing utilities and files with potential embedded credentials are not redistributed. Exclusions are indexed in `metadata/OMITTED_FILES.csv` and `metadata/OMITTED_MODEL_DATA.csv`.
+With the NT checkpoint and `nucleotide_embeddings.pt` prepared:
 
-Contact: pan.jie@ntu.edu.sg
+```bash
+python inference/predict.py --modality dna --checkpoint models/arg_fixed80/full/ARGScope-NT.pt --embeddings nucleotide_embeddings.pt --output results/predictions_NT.csv
+```
+
+Only the selected modality is required for prediction. Paired protein and nucleotide inputs are used during model training.
+
+### Options
+
+| Option | Description |
+|---|---|
+| `--modality` | `protein` or `dna` |
+| `--checkpoint` | Path to the corresponding released checkpoint |
+| `--embeddings` | Path to the input `.pt` dictionary |
+| `--output` | Path to a new output CSV file |
+| `--device` | `cuda` by default, or `cpu` |
+| `--batch-size` | Optional positive integer overriding the saved evaluation batch size |
+
+For CPU prediction, append `--device cpu` to the command. CPU execution is implemented, but agreement with the original GPU results has not been verified. Existing output files are not overwritten.
+
+## Output
+
+The output CSV contains one row per input sequence:
+
+| Column | Description |
+|---|---|
+| `sequence_id` | Input sequence ID |
+| `predicted_ARG` | Binary decision, with `1` for ARG and `0` for non-ARG |
+| `predicted_subtype` | Predicted ARG subtype, or `nonARG` |
+| `predicted_type` | Resistance type mapped from the predicted subtype, or `nonARG` |
+| `ARG_probability` | Probability from the binary ARG head |
+| `ARG_subtype_max_probability` | Maximum probability from the ARG subtype head |
+| `ARG_subtype_before_binary_gate` | Highest-scoring ARG subtype before applying the binary decision |
+| `binary_threshold` | Saved ARG probability threshold, `0.80` |
+
+The binary and subtype heads run in parallel. Predictions with an ARG probability below `0.80` are reported as `nonARG`. For ARG predictions, the subtype is retained and mapped to its resistance type.
+
+## Model construction
+
+The separate **[model construction guide](docs/DEVELOPMENT.md)** describes multimodal fusion, subtype prototype construction, graph refinement, teacher-student learning and the fixed-split training commands. The [training source](training/arg_fixed80/) can be browsed directly on GitHub.
+
+## Notes
+
+- Prediction does not require retraining the model or providing the other modality.
+- The released wrapper checks the checkpoint hashes and supports the two published Full checkpoints. Newly trained or alternative-task checkpoints need their corresponding inference workflow.
+- Load only trusted PyTorch model and embedding files. Full sequence databases, language-model weights and bulk embeddings are not included.
+- The two released checkpoints were replayed on their original 4,574 test embeddings, matching the saved predictions. Details are in [INFERENCE_REPLAY.json](metadata/INFERENCE_REPLAY.json).
+- Data requirements, release checks and reuse terms are described in [DATA.md](docs/DATA.md), [REPRODUCIBILITY.md](docs/REPRODUCIBILITY.md) and [LICENSE_STATUS.md](docs/LICENSE_STATUS.md).
+
+## Contact
+
+For questions or bug reports, please open a [GitHub issue](https://github.com/JiePan-code/ARGScope/issues) or contact [pan.jie@ntu.edu.sg](mailto:pan.jie@ntu.edu.sg). Please include the command, error message and software versions when reporting a problem.
