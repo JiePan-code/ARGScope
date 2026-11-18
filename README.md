@@ -12,7 +12,6 @@ This page is the **usage manual**. For the learning framework, training data lay
 - [Example](#example)
 - [Output](#output)
 - [Model construction](#model-construction)
-- [Reproduce Figure 6](#reproduce-figure-6)
 - [Notes](#notes)
 - [Contact](#contact)
 
@@ -143,10 +142,6 @@ The binary and subtype heads run in parallel. Predictions with an ARG probabilit
 ## Model construction
 
 The separate **[model construction guide](docs/DEVELOPMENT.md)** describes multimodal fusion, subtype prototype construction, graph refinement, teacher-student learning and the fixed-split training commands. The [training source](training/arg_fixed80/) can be browsed directly on GitHub.
-
-## Reproduce Figure 6
-
-The [Figure 6 reproduction guide](benchmarks/novel_gene/README.md) provides the audited result table, fold assignments and plotting script for the full-length protein comparison of ARGScope and DeepARG.
 
 ## Notes
 
