@@ -1,0 +1,29 @@
+{
+  "paper_figure_source_sha256": "97637d34da1f514aebec9a6b6081b729b72e7893b7c27f16acb778d0ea51e5f0",
+  "source_workbook_sha256": {
+    "ARGScope_vs_DeepARG_Novel_Gene.xlsx": "2131cac128877a619cdf9fe129aaaf3c7272d98273ff9accfd5d47a3b1a3f903",
+    "ARGScope_vs_DeepARG_Aminoglycosides_Subtype_LOO.xlsx": "31e0924bbba6fcf1a6bad2f8051f2759c5e1028a4323d6f02332d560a3a79a8a",
+    "ARGScope_vs_DeepARG_Tetracyclines_Subtype_LOO.xlsx": "9336fb773164b3ae984b35e33fab05bd638f378d0236ec6b264755e9a1dc84fc"
+  },
+  "source_run_audit_sha256": {
+    "5.Type_LOO_binary_20261113/FINAL_AUDIT.json": "06317624a644643951e68e9b3f020d888bf8fd51694b91f0797f037ce3656a4d",
+    "6.Subtype_LOO_aminoglycoside_tetracycline_20261114/final/FINAL_AUDIT.json": "edcb6d5ee483fb5e3b0f7427b5bebcbbf8d94899b228f0d243fd0a10603eccdb",
+    "7.DeepARG_Type_LOO_ARGNet_20261116/FINAL_AUDIT.json": "1e0df53937cb7bccedf6dd6125ae33ceee423a0147a011d3ec5498ae541cc23f",
+    "8.DeepARG_Subtype_LOO_Aminoglycosides_Tetracyclines_20261116/FINAL_AUDIT.json": "8b251d27a0bebe22936f750af51f726e090f71ec80ab1fc3c17f4be6c642fc22"
+  },
+  "checked": {
+    "folds": 91,
+    "records_in_split_union": 24874,
+    "results_rows": 372,
+    "printed_figure_values": 680,
+    "paper_panel_A_positive_counts": {
+      "0.5": 12,
+      "0.8": 11
+    }
+  },
+  "export_sha256": {
+    "figure6_results.csv": "37a238dfc5c3c19ebdbb6c2b6f07a51d35c6d9215c1100113fe2e84502e541be",
+    "folds.csv": "0b94d58feb63eaf9c2f4d66ec1d9ffdc7a4a7544c53b3041629b804743e5c335",
+    "split_membership.csv.gz": "c32aa7b6604f02e946a4b2721677d60ae1055b1f0dd9b5a1db098598fefeafd7"
+  }
+}
